@@ -8,14 +8,20 @@ type Coordinates = {
 
 function App() {
   const [coordinates, setCoordinates] = useState<Coordinates | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
       const data = await fetchCoordinates();
       setCoordinates({ latitude: data.latitude, longitude: data.longitude });
+      setLoading(false);
     }
     fetchData();
   }, []);
+
+  if(loading) {
+    return <h2>🔄 Loading...</h2>
+  }
   // No código acima, está sendo criada a função assíncrona fetchData dentro do useEffect. Essa função vai aguardar o retorno de fetchCoordinates e armazená-lo no estado do componente. Na sequência, execute fetchData.
   // Como o segundo parâmetro do hook é uma lista vazia ([]), a callback será executada apenas uma vez após a primeira renderização do componente App.
 
