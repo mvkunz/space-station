@@ -20,7 +20,15 @@ function App() {
   // Como o segundo parâmetro do hook é uma lista vazia ([]), a callback será executada apenas uma vez após a primeira renderização do componente App.
 
   return (
-    <h1>International Space Station Location Tracker</h1>
+    <>
+      <h1>International Space Station Location Tracker</h1>
+      {coordinates && (
+        <>
+          <h2>{`Latitude: ${coordinates.latitude}`}</h2>
+          <h2>{`Longitude: ${coordinates.longitude}`}</h2>
+        </>
+      )}
+    </>
   );
 }
 
