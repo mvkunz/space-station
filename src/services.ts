@@ -4,7 +4,7 @@ export const fetchCoordinates = async () => {
   );
 
   if (!response.ok) {
-    throw new Error(`Failed to fetch coordinates`);
+    throw new Error(`Failed to fetch coordinate`);
   }
 
   const coordinates = await response.json();
@@ -14,6 +14,7 @@ export const fetchCoordinates = async () => {
 
   return { latitude, longitude };
 };
+
 
 // o arquivo /src/services.ts deverá exportar a função que realiza o fetch para o endpoint https://api.wheretheiss.at/v1/satellites/25544. Essa função deve retornar os valores de latitude e longitude recebidos pela API.
 
